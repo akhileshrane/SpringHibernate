@@ -1,0 +1,11 @@
+package com.client;
+
+import org.springframework.context.ApplicationContext;
+
+public class ClientApp {
+	
+	public static void main(String[] args) {
+		ApplicationContext app = ApplicationContext;
+	}
+	
+}

@@ -1,0 +1,15 @@
+package com.xoriant.beans;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+
+public class Client {
+	public static void main(String[] args) {
+		ApplicationContext app = new ClassPathXmlApplicationContext("beansconf.xml");
+		School school = (School) app.getBean("school");
+		Student student = (Student) app.getBean("student");
+		System.out.println(add);
+		System.out.println(emp);
+	}
+}

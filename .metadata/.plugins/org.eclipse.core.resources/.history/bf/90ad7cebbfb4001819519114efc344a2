@@ -1,0 +1,25 @@
+package com.xoriant.beans;
+
+public class Order {
+	private int orderId;
+	private String order;
+	public Order() {
+		super();
+	}
+	public int getOrderId() {
+		return orderId;
+	}
+	public void setOrderId(int orderId) {
+		this.orderId = orderId;
+	}
+	public String getOrder() {
+		return order;
+	}
+	public void setOrder(String order) {
+		this.order = order;
+	}
+	@Override
+	public String toString() {
+		return "Order [orderId=" + orderId + ", order=" + order + "]";
+	}
+}

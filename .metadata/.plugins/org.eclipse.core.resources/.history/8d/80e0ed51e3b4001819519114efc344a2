@@ -1,0 +1,12 @@
+package com.Anno;
+
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
+
+@Aspect
+public class Performer {
+	
+	public void perform() throws Exception{
+		System.out.println("Performer performs.");
+	}
+}

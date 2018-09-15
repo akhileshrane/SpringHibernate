@@ -1,0 +1,7 @@
+
+public class Performer throws Exce[tion]{
+	public void perform(){
+		System.out.println("Performer performs.");
+		throw new Exception();
+	}
+}

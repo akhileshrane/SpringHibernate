@@ -1,0 +1,18 @@
+package com.xoriant.util;
+
+import javax.imageio.spi.ServiceRegistry;
+
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.service.ServiceRegistry;
+
+public class HibernateUtil {
+	private static SessionFactory sessFactory;
+	private static ServiceRegistry serReg;
+	private static SessionFactory factory() {
+		Configuration config = new Configuration();
+		config.configure();
+		serReg = new ServiceRegistryBuilder().applySettings(config.getProperties()).buildServiceRegistry() ;
+		return config.buildSessionFactory(serReg);
+	}
+}

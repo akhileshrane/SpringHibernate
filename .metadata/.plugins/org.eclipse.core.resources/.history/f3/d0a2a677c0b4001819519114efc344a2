@@ -1,0 +1,11 @@
+package com.xoriant.beans;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class Customer {
+	private String name;
+	private int custID;
+	
+	@Autowired
+	private Order order;
+}

@@ -1,0 +1,39 @@
+package com.xoriant.beans;
+
+import java.util.List;
+
+public class FlowerBouquet {
+	private String name;
+	private int id;
+	private double cost;
+	private List<String> flowers;
+	@Override
+	public String toString() {
+		return "FlowerBouquet [name=" + name + ", id=" + id + ", cost=" + cost + ", flowers=" + flowers + "]";
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public double getCost() {
+		return cost;
+	}
+	public void setCost(double cost) {
+		this.cost = cost;
+	}
+	public List<String> getFlowers() {
+		return flowers;
+	}
+	public void setFlowers(List<String> flowers) {
+		this.flowers = flowers;
+	}
+	
+}

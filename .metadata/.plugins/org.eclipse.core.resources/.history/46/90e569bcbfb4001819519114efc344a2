@@ -1,0 +1,6 @@
+package com.xoriant.beans;
+
+public class Order {
+	privtae int orderId;
+	
+}

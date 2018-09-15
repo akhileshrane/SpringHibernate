@@ -1,0 +1,36 @@
+package com.xoriant.util;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import com.xoriant.dto.Employee;
+
+
+public class EmployeeDao {
+	Session session = HibernateUtil.getSessionFactory().openSession();
+	Transaction tx = null;
+	Integer employeeID = null;
+	
+	public Integer addEmployee(Employee emp) {
+		try{
+			tx = session.beginTransaction();
+			Employee employee = new Employee(emp.getFirstName(),emp.getLastName(),emp.getSal(),emp.getCerts());
+			employeeID= (Integer) session.save(employee);
+			tx.commit();
+		} catch (HibernateException e) {
+			if(tx!=null) tx.rollback();
+			e.printStackTrace();
+		}
+		return employeeID;
+	}
+	
+	public void listEmployees() {
+		try{
+			tx = session.beginTransaction();
+
+			tx.commit();
+	}catch() {
+		
+	}
+}}

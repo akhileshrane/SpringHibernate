@@ -1,0 +1,13 @@
+package com.xoriant.dto;
+
+import java.util.*;
+
+public class Employee {
+	private int id;
+	private String firstName;
+	private String lastName;
+	private int sal;
+	private List<Certificate> certs;
+	
+	
+}

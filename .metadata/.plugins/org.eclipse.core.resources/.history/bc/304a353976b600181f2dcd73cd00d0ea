@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int i = scan.nextInt();
+        double d = scan.nextDouble();
+        
+        String[] a = scan.next().split(" ");
+        
+        for(int t = 0; t < a.length; t++){
+            System.out.println(a[t]);
+        }
+        
+        System.out.println("Double: " + d);
+        System.out.println("Int: " + i);
+    }
+}

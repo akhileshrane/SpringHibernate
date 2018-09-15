@@ -1,0 +1,10 @@
+package com.beans;
+
+public class Employee {
+	
+	private int empID;
+	private String name;
+	private char grade;
+	private Address address;
+
+}

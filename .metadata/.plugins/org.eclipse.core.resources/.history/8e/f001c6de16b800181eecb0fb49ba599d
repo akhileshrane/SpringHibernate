@@ -1,0 +1,30 @@
+package com.xoriant.dto;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.hibernate.Session;
+
+import com.xoriant.util.EmployeeDao;
+import com.xoriant.util.HibernateUtil;
+
+public class Main {
+	public static void main(String[] args) {
+		
+		List<Certificate> cert = new ArrayList<>();
+		
+		Certificate cer = new Certificate();
+		cer.setName("Java");
+		cert.add(cer);
+	
+		Employee emp = new Employee();
+		emp.setFirstName("Pramod");
+		emp.setCerts(cert);
+		emp.setLastName("rawate");
+		emp.setSal(70000);
+		EmployeeDao empDao = new EmployeeDao();
+		
+		empDao.addEmployee(emp);
+		
+	}
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<bean class="com.xoriant.beans.FlowerBouquet" id="flowerBouquet"> 
+		<property name="name" value="bouquet1"></property>
+		<property name="cost" value="1500"></property>
+		<property name="id" value="1"></property>
+		<property name="flowers">
+			<list>
+				<value>Roses</value>
+				<value>Tulips</value>
+				<value>Dandelions</value>
+			</list>
+		</property>
+	</bean>
+</beans>

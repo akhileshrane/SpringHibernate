@@ -1,0 +1,7 @@
+
+
+import org.springframework.web.portlet.mvc.AbstractController;
+
+public class HelloWorldContainer extends AbstractController{
+
+}

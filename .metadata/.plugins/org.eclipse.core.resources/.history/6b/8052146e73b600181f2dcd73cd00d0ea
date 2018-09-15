@@ -1,0 +1,17 @@
+public class Firsr {
+	
+	public static void func(int num) {
+		if(num==0) {
+			System.out.println("Out");
+		}
+		else {
+			func(num++);
+			System.out.println(num);
+		}
+	}
+
+	public static void main(String[] args) {
+		func(1);
+	}
+	
+}

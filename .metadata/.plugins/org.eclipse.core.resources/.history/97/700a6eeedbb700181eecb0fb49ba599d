@@ -1,0 +1,5 @@
+package com.xoriant.dto;
+
+public class Book {
+
+}

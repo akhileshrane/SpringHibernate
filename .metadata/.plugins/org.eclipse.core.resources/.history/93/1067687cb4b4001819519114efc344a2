@@ -1,0 +1,12 @@
+package com.xoriant.beans;
+
+public class Student {
+	private String name;
+	private int rollNo;
+	private int std;
+	private School school;
+	
+	public Student() {
+		// TODO Auto-generated constructor stub
+	}
+}

@@ -1,0 +1,96 @@
+package com.xoriant.util;
+
+import java.util.Iterator;
+import java.util.List;
+
+import org.hibernate.Hibernate;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+import com.xoriant.dto.Employee;
+import com.xoriant.util.HibernateUtil;
+
+
+
+public class EmployeeDao {
+       private static SessionFactory factory;
+
+       public Integer addEmployee(Employee emp) {
+//            Session session = factory.openSession();
+              Session session = HibernateUtil.getSessionFactory().openSession();
+              Transaction tx = null;
+              Integer employeeID=null;
+
+              tx=session.beginTransaction();
+//            Employee employee = new Employee(emp.getFirstName(),emp.getLastName(),emp.getSalary(),emp.getCertificates()); 
+              employeeID =  (Integer) session.save(emp);
+              tx.commit();
+              return employeeID;
+       }
+
+       public List<Employee> listEmployees() {
+              Session session = HibernateUtil.getSessionFactory().openSession();
+//            Session session = factory.openSession();
+              Transaction tx = null;
+              List<Employee> employees = null ;
+              try
+              {
+                     tx = session.beginTransaction();
+                     employees = session.createQuery("FROM EMPLOYEE").list();
+                     tx.commit();
+              } catch (Exception e) {
+                     if(tx!=null) tx.rollback();
+                     e.printStackTrace();
+              } finally {
+                     session.close();
+              }
+              return employees;
+              //            for (Iterator<Employee> iterator1 = employees.iterator(); iterator1.hasNext();) {
+              //                  Employee employee = (Employee) iterator1.next();
+              //                  System.out.println("First Name:- "+employee.getFirstName());
+              //                  System.out.println("Last Name:- "+employee.getLastName());
+              //                  System.out.println("Salary");
+              //            }
+              //     }
+       }
+       
+       public void updateEmployee(Integer EmployeeID,int salary) {
+    	   	  Session session = HibernateUtil.getSessionFactory().openSession();
+              Transaction tx = null;
+              Employee employee = null ;
+              try
+              {
+                     tx = session.beginTransaction();
+                     employee = (Employee) session.get(Employee.class,EmployeeID);
+                     employee.setSal(salary);
+                     session.update(employee);
+                     tx.commit();
+              } catch (HibernateException e) {
+                     if(tx!=null) tx.rollback();
+                     e.printStackTrace();
+              } finally {
+                     session.close();
+              }
+       }
+       
+       public void deleteEmployee(Integer EmployeeID) {
+              Session session = factory.openSession();
+              Transaction tx = null;
+              Employee employee = null ;
+              
+              try
+              {
+                     tx = session.beginTransaction();
+                     employee = (Employee) session.get(Employee.class,EmployeeID);
+                     session.delete(employee);
+                     tx.commit();
+              } catch (HibernateException e) {
+                     if(tx!=null) tx.rollback();
+                     e.printStackTrace();
+              } finally {
+                     session.close();
+              }
+       }
+}

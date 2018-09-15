@@ -1,0 +1,7 @@
+package com.controller;
+
+import org.springframework.web.servlet.mvc.AbstractController;
+
+public class Controller extends AbstractController{
+
+}

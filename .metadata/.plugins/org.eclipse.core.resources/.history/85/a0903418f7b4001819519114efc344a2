@@ -1,0 +1,78 @@
+package com.dao;
+
+import java.sql.JDBCType;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+import javax.sql.DataSource;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+
+import com.beans.Student;
+
+public class StudentDaoImpl implements StudentDao{
+
+	private DataSource dataSource;
+	private JdbcTemplate jdbcTemplateObject;
+	
+	@Override
+	public void addStudent(Student student) {
+		String SQL = "insert into student values(?,?,?);";
+		jdbcTemplateObject.update(SQL, student.getId(), student.getName(), student.getAge());
+		System.out.println("Created record for: "+ student.getName());
+	}
+	
+	@Override
+	public Student getStudent(Integer id) {
+		return (Student) jdbcTemplateObject.query("select * from student where id=?;", new RowMapper<Student>() {
+			@Override
+			public Student mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Student student = new Student(rs.getInt(1), rs.getString(2), rs.getInt(3));
+				return student;
+			}
+		});
+	}
+
+	@Override
+	public List<Student> listOfStudents() {
+		return jdbcTemplateObject.query("select * from student;", new RowMapper<Student>() {
+			@Override
+			public Student mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Student student = new Student(rs.getInt(1), rs.getString(2), rs.getInt(3));
+				return student;
+			}
+		});
+	}
+
+	@Override
+	public void delete(Integer id) {
+		String SQL = "DELETE FROM student WHERE id=?;";
+		jdbcTemplateObject.update(SQL, id);
+	}
+
+	@Override
+	public void update(Integer id, Integer age) {
+		String SQL = "update table student set age=? where id=?;";
+		jdbcTemplateObject.update(SQL, age, id);
+	}
+
+	public void setDataSource(DataSource dataSource) {
+		this.dataSource = dataSource;
+		this.jdbcTemplateObject = new JdbcTemplate(dataSource);
+	}
+	
+	public void setJdbcTemplateObject(JdbcTemplate jdbcTemplateObject) {
+		this.jdbcTemplateObject = jdbcTemplateObject;
+	}
+
+	public static void main(String[] args) {
+		ApplicationContext app = new ClassPathXmlApplicationContext("bean.xml");
+		StudentDaoImpl student = (StudentDaoImpl) app.getBean("studentDao");
+		Student student1 = new Student(1, "Akhilesh", 22);
+		student.addStudent(student1);
+		student.getStudent(1);
+	}
+}

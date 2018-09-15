@@ -1,0 +1,11 @@
+package com.xoriant.beans;
+
+import java.util.List;
+
+public class FlowerBouquet {
+	private String name;
+	private int id;
+	private double cost;
+	private List<String> flowers;
+	
+}

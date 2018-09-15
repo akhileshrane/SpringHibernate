@@ -1,0 +1,48 @@
+package com.xoriant.dto;
+
+@Entity
+@Table(name = "Book")
+public class Book {
+	private String title;
+	private float price;
+	private String auhor;
+	private long id;
+	
+	public Book() {
+		super();
+	}
+	
+	public String getTitle() {
+		return title;
+	}
+	
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	public float getPrice() {
+		return price;
+	}
+	
+	public void setPrice(float price) {
+		this.price = price;
+	}
+	
+	public String getAuhor() {
+		return auhor;
+	}
+	
+	public void setAuhor(String auhor) {
+		this.auhor = auhor;
+	}
+	
+	public long getId() {
+		return id;
+	}
+	
+	public void setId(long id) {
+		this.id = id;
+	}
+	
+	
+}

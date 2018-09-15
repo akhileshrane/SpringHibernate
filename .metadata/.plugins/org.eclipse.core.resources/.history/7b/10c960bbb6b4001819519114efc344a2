@@ -1,0 +1,27 @@
+package com.xoriant.beans;
+
+public class Student {
+	private String name;
+	private int rollNo;
+	private int std;
+	private School school1;
+	
+	public Student() {
+		System.out.println("Student constructor");
+	}
+
+	public Student(String name, int rollNo, int std, School school1) {
+		super();
+		this.name = name;
+		this.rollNo = rollNo;
+		this.std = std;
+		this.school1 = school;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [name=" + name + ", rollNo=" + rollNo + ", std=" + std + ", school=" + school1 + "]";
+	}
+	
+	
+}

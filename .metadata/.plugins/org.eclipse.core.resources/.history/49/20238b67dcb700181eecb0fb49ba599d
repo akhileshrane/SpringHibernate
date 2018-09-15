@@ -1,0 +1,9 @@
+package com.xoriant.dto;
+
+public class Book {
+	private String title;
+	private float price;
+	private String auhor;
+	private long id;
+	
+}

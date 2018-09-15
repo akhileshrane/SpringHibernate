@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+		http://www.spring1framework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+	
+<context:annotation-config>
+
+	<bean class="com.xoriant.beans.Order" id="order">
+		<property name="orderId" value="1"></property>
+		<property name="order" value="Biryani"></property>
+	</bean>
+	
+	<bean class="com.xoriant.beans.Customer" id="customer">
+		<property name="custID" value="1"></property>
+		<property name="name" value="Akhilesh"></property>
+	</bean>
+</context:annotation-config>
+</beans>

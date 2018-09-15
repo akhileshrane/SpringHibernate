@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean class="com.xoriant.beans.School" id="school">
+		<constructor-arg name="name" value="DAV"></constructor-arg>
+		<constructor-arg name="city" value="Pune"></constructor-arg>
+	</bean>
+
+	<bean class="com.xoriant.beans.Student" id="student" autowire="constructor">
+		<constructor-arg name="name" value="Akhilesh"></constructor-arg>
+		<constructor-arg name="rollNo" value="9"></constructor-arg>
+		<constructor-arg name="std" value="12"></constructor-arg>
+	</bean>
+	
+</beans>

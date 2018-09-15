@@ -1,0 +1,33 @@
+package com.xoriant.util;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.hibernate.Session;
+
+import com.xoriant.dto.Certificate;
+import com.xoriant.dto.Employee;
+
+public class Main {
+	public static void main(String[] args) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		session.beginTransaction();
+		Certificate cer = new Certificate();
+		cer.setId(1);
+		cer.setName("Java");
+		
+		Certificate cer1 = new Certificate();
+		cer.setId(2);
+		cer.setName("Python");
+		
+		List<Certificate> cert = new ArrayList<>();
+		cert.add(cer);
+		cert.add(cer1);
+		
+		Employee emp = new Employee("Akhilesh", "Rane", 450000, cert);
+		
+		session.save(emp);
+		session.getTransaction().commit();
+		
+	}
+}

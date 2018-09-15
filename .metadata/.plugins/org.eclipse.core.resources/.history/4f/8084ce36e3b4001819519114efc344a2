@@ -1,0 +1,37 @@
+package com.Anno;
+
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
+
+@Aspect
+public class Audience {
+	@Pointcut("execution(* com.Anno.Performer.perform(..))")
+	public void perform() {
+		
+	}
+	public void boo() {
+		System.out.println("Audience did not like the performance.");
+	}
+	
+	@Before("performance()")
+	public void takeSeats() {
+		System.out.println("The audience are taking their seats.");
+	}
+	@After("performance()")
+	public void applaud() {
+		System.out.println("Clap clap");
+	}
+	
+	@After("performance()")
+	public void goHome() {
+		System.out.println("going home");
+	}
+	
+	@After("performance()")
+	public void demandRefund() {
+		System.out.println("Paisa lotao.");
+	}
+}
+
